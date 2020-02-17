@@ -1,3 +1,9 @@
+//
+// async example 03.
+//
+// join multiple async funcs.
+//
+
 use futures::executor::block_on;
 use futures::join;
 

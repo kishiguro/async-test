@@ -1,3 +1,8 @@
+//
+// async example 01.
+//
+// create and calling async func.
+//
 use futures::executor::block_on;
 
 async fn async_func() -> i32 {
