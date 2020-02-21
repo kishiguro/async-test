@@ -16,17 +16,6 @@ async fn main() {
         },
     };
 
-    let next = tokio::select! {
-        v = stream1.next() => {
-            println!("stream1");
-            v.unwrap()
-        },
-        v = stream2.next() => {
-            println!("stream2");
-            v.unwrap()
-        },
-    };
-
     println!("next {}", next);
 
     assert!(next == 1 || next == 4);
