@@ -6,9 +6,7 @@ use tokio::time::{DelayQueue, Duration};
 
 #[derive(Debug)]
 enum Event {
-    //Connected,
     TimerExpired,
-    //ChannelReceived,
 }
 
 #[derive(Debug)]
