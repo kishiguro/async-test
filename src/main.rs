@@ -2,6 +2,7 @@ use std::sync::Arc;
 use std::sync::Mutex;
 
 use futures::future::join_all;
+use tokio::time::sleep;
 use tokio::time::Duration;
 
 #[tokio::main]
@@ -11,11 +12,11 @@ async fn main() -> Result<(), failure::Error> {
     let counter = Arc::new(Mutex::new(Vec::new()));
     let mut handles = Vec::new();
 
-    for i in 0..4 {
+    for i in 0..20 {
         let counter = Arc::clone(&counter);
         handles.push(tokio::spawn(async move {
             println!("start({:?}) {}", std::thread::current().id(), i);
-            tokio::time::delay_for(Duration::from_secs(i)).await;
+            sleep(Duration::from_secs(i)).await;
             println!("end({:?}) {}", std::thread::current().id(), i);
 
             let mut num = counter.lock().unwrap();
