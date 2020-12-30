@@ -7,8 +7,6 @@ use tokio::time::Duration;
 
 #[tokio::main]
 async fn main() -> Result<(), failure::Error> {
-    println!("- start({:?})", std::thread::current().id());
-
     let counter = Arc::new(Mutex::new(Vec::new()));
     let mut handles = Vec::new();
 
